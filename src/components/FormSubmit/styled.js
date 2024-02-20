@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const FormWrapper = styled.div(() => ({
   flex: 1,
   ".title": {
-    fontSize: "1.25rem",
+    textAlign: "center",
+    fontSize: "2.5rem",
     fontWeight: 500,
     backgroundColor: "#f8f9fa",
     margin: "30px 20px",
@@ -91,6 +92,6 @@ export const FormWrapper = styled.div(() => ({
     },
   },
   ".error": {
-    color: "red",
+    color: "#ff0000",
   },
 }));

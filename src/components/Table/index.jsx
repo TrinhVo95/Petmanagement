@@ -1,14 +1,10 @@
 import React from "react";
 import { TableWrapper } from "./styled";
-import {
-  BiSquareRounded,
-  BiSolidCheckCircle,
-  BiSolidXCircle,
-} from "react-icons/bi";
+import { BiSolidCheckCircle } from "react-icons/bi";
 
-const Table = () => {
+const Table = ({ datas }) => {
   return (
-    <TableWrapper class="table table-striped">
+    <TableWrapper className="table table-striped">
       <thead>
         <tr>
           <th scope="col">ID</th>
@@ -18,7 +14,6 @@ const Table = () => {
           <th scope="col">Weight</th>
           <th scope="col">Length</th>
           <th scope="col">Breed</th>
-          <th scope="col">Color</th>
           <th scope="col">Vaccinated</th>
           <th scope="col">Dewormed</th>
           <th scope="col">Sterilized</th>
@@ -27,34 +22,40 @@ const Table = () => {
         </tr>
       </thead>
       <tbody id="tbody" className="table-body">
-        <tr>
-          <th scope="row">P001</th>
-          <td>Tom</td>
-          <td>3</td>
-          <td>Cat</td>
-          <td>5 kg</td>
-          <td>50 cm</td>
-          <td>Tabby</td>
-          <td>
-            <BiSquareRounded />
-          </td>
-          <td>
-            <BiSolidCheckCircle />
-          </td>
-          <td>
-            <BiSolidCheckCircle />
-          </td>
-          <td>
-            <BiSolidCheckCircle />
-          </td>
-          <td>01/03/2022</td>
-          <td>
-            <button type="button" class=" btn-danger">
-              Delete
-            </button>
-          </td>
-        </tr>
-        <tr>
+        {datas.map((data) => {
+          return (
+            <tr key={data.petID}>
+              <th scope="row">{data.petID}</th>
+              <td>{data.petname}</td>
+              <td>{data.age}</td>
+              <td>{data.type}</td>
+              <td>{data.weight} kg</td>
+              <td>{data.length} cm</td>
+              <td>{data.breed}</td>
+
+              <td>
+                <BiSolidCheckCircle />
+              </td>
+              <td>
+                <BiSolidCheckCircle />
+              </td>
+              <td>
+                <BiSolidCheckCircle />
+              </td>
+              <td>01/03/2022</td>
+              <td style={{ display: "flex", justifyContent: "center" }}>
+                <button type="button" className=" btn-success">
+                  Update
+                </button>
+                <button type="button" className=" btn-danger">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          );
+        })}
+
+        {/* <tr>
           <th scope="row">P002</th>
           <td>Tyke</td>
           <td>5</td>
@@ -76,11 +77,11 @@ const Table = () => {
           </td>
           <td>02/03/2022</td>
           <td>
-            <button type="button" class=" btn-danger">
+            <button type="button" className=" btn-danger">
               Delete
             </button>
           </td>
-        </tr>
+        </tr> */}
       </tbody>
     </TableWrapper>
   );
